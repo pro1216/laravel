@@ -33,9 +33,11 @@
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+        <br>
+        <a href="{{route('register')}}">新規登録</a>
 
     </form>
-
+    </br>
 </body>
 
 </html>

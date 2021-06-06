@@ -52,4 +52,13 @@ class AuthController extends Controller
         return redirect()->route('login.show')
         ->with('danger','ログアウトしました。');
     }
+    /**
+     * ユーザーを登録する
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Request
+     */
+    public function register(Request $request){
+       
+    }
 }
