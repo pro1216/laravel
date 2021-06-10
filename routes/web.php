@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +46,8 @@ Route::post(
     'register',
     [AuthController::class, "register"]
 )->name('register');
+
+//パスワード変更画面
+Route::get('password', function () {
+    return view('password');
+})->name('password');
