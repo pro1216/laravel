@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -95,19 +96,22 @@ class AuthController extends Controller
         $email = $request->input('email');
         $user = $this->user->getUserByEmail($email);
         if(is_null($user)){
-
             $first_name = $request->input('first_name');
             $last_name = $request->input('last_name');
             $name = $last_name.$first_name;
             $password = $request->input('password');
-            $this->user->name = $name;
-            $this->user->email = $email;
-            $this->user->password=Hash::make($password);
-            $this->user->save();
-            event(new Registered($user));
+            $password1 = $request->input('password1');
            
-            return redirect()->route('login.show')
-            ->with('success', 'アカウント作成に成功しました。');
+            
+                    $this->user->name = $name;
+                    $this->user->email = $email;
+                    $this->user->password=Hash::make($password);
+                    $this->user->save();
+                    event(new Registered($user));
+
+                    return redirect()->route('login.show')
+                    ->with('success', 'アカウント作成に成功しました。');
+           
         }
         return back() ->with('danger', '既に存在するアカウントです');
 

@@ -7,6 +7,10 @@
     <title>パスワード変更</title>
 </head>
 <body>
-    
+    <h1>パスワード変更手続き</h1>
+    <form>
+    <input type="email" id="email">
+    <input type="submit" value="メール送信">
+    </form> 
 </body>
 </html>

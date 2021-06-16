@@ -47,7 +47,7 @@
         <div id="modal" class="modal">
             <div class="modal-content">
                 <div class="modal-body">
-                <div class="dager">パスワードまたは、メールアドレスが誤っています。</div>
+                <div class="text-danger">パスワードまたは、メールアドレスが誤っています。</div>
                     <input type="button" id="closeBtn" value="close">
                 </div>
             </div>
@@ -60,16 +60,14 @@
     <script type="text/javascript">
         button.addEventListener('click', function(event) {
             
-            if (mailCheck() && passwordCheck()) {
-                return;
-                
-            }
+            if (!mailCheck() || !passwordCheck()) {
             event.preventDefault();
             var modal = document.getElementById('modal');
             modal.style.display = 'block';
-            
-            console.log(mailCheck());
-           // event.preventDefault();
+                
+            }
+                return;
+    
 
         })
 
@@ -93,11 +91,12 @@
             var password = document.getElementById('inputPassword');
             
             if (password.value) {
-                console.log(password);
-                return true;
+                if(password.value.length >= 1){
 
+                    console.log(password);
+                    return true;
+                }
             }
-           
             return false;
         }
 
