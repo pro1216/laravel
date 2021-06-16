@@ -25,6 +25,7 @@
                 <button class="btn btn-danger">ログアウト</button>
             </form>
         </div>
+    </div>
 </body>
 
 </html>
