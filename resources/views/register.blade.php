@@ -78,11 +78,30 @@
         }
 
         //バリデーション
-        form.addEventListener('focusout', function() {
-            checkLastName();
-            checkFirstName();
-            checkMail();
-            passwordDuewl();
+        form.addEventListener('focusout', function(event) {
+            var form = document.getElementById('form');
+            
+            var e = event.target;
+            
+            console.log(e.id);
+                switch (e) {
+                            case last_name:
+                                checkLastName();
+                                break;
+                            case first_name:
+                                checkFirstName();
+                                break;
+                            case email:
+                                checkMail();
+                                break;
+                            case password:
+                                passwordDuewl();
+                                break;
+                            case password1:
+                                passwordDuewl();
+                                break;
+                        }
+            
         })
 
         function checkLastName() {
@@ -102,7 +121,7 @@
             }
             last_name_err.textContent = "必須項目です";
             last_name_err.setAttribute('class', 'text-danger form-text small');
-            flg = false;
+            
             return false;
         }
 
